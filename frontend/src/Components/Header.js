@@ -1,14 +1,16 @@
-import React from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Container, Nav, Navbar } from "react-bootstrap";
+import { AiFillCar } from "react-icons/ai";
+
+import { Link } from "react-router-dom";
 
 // Header of Website
 const Header = () => {
   return (
-    <Navbar expand="lg" bg="dark" variant="dark">
+    <Navbar expand="lg" bg="success" variant="dark">
       <Container>
         <Navbar.Brand as={Link} to="/">
-          Home
+          <AiFillCar />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
