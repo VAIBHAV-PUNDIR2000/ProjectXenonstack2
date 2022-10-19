@@ -1,27 +1,27 @@
-import { Container, Form, Button } from 'react-bootstrap';
-import React, { useState } from 'react';
-import { API } from '../config';
-import { useNavigate } from 'react-router-dom';
+import { Container, Form, Button } from "react-bootstrap";
+import React, { useState } from "react";
+import { API } from "../config";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
-  const [email, setEmail] = useState('suraj@gmail.com');
-  const [pass, setPass] = useState('1245');
-  const [name, setName] = useState('');
-  const [message, setMessage] = useState('');
+  const [email, setEmail] = useState("vaibhavv@gmail.com");
+  const [pass, setPass] = useState("1245");
+  const [name, setName] = useState("");
+  const [message, setMessage] = useState("");
   const navigate = useNavigate();
 
   // function for handing singup request
   const handelSubmit = (e) => {
     e.preventDefault();
-    console.log('HHSH');
+    console.log("HHSH");
     fetch(
       `${API}register`,
 
       {
-        method: 'post',
+        method: "post",
         headers: {
-          Accept: 'application/json, text/plain, */*',
-          'Content-Type': 'application/json',
+          Accept: "application/json, text/plain, */*",
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           name,
@@ -31,15 +31,15 @@ const SignUp = () => {
       }
     )
       .then((response) => {
-        console.log('response.json()', response.status);
+        console.log("response.json()", response.status);
         console.log(response.json());
 
         if (response.status === 201) {
-          navigate('/');
+          navigate("/");
         } else if (response.status === 401) {
-          setMessage('User already exists');
+          setMessage("User already exists");
         } else {
-          setMessage('Error Occure');
+          setMessage("Error Occure");
         }
       })
       .catch((err) => console.log(err));

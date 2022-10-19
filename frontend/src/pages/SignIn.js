@@ -1,22 +1,22 @@
-import React, { useState } from 'react';
-import { Container, Form, Button } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
-import { API } from '../config';
+import React, { useState } from "react";
+import { Container, Form, Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+import { API } from "../config";
 
 const SignIn = () => {
-  const [email, setEmail] = useState('suraj@google.com');
-  const [pass, setPass] = useState('1245');
-  const [message, setMessage] = useState('');
+  const [email, setEmail] = useState("vaibhav@gmail.com");
+  const [pass, setPass] = useState("1245");
+  const [message, setMessage] = useState("");
   const navigate = useNavigate();
 
   // function for handing singin request
   const handelSubmit = (e) => {
     e.preventDefault();
     fetch(`${API}login`, {
-      method: 'post',
+      method: "post",
       headers: {
-        Accept: 'application/json, text/plain, */*',
-        'Content-Type': 'application/json',
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         email,
@@ -24,11 +24,11 @@ const SignIn = () => {
       }),
     })
       .then((response) => {
-        console.log('response.json()', response.status);
+        console.log("response.json()", response.status);
         if (response.status === 200) {
-          navigate('/');
+          navigate("/");
         } else {
-          setMessage('Please Provide Vaild Email and Password');
+          setMessage("Please Provide Vaild Email and Password");
         }
       })
       .catch((err) => console.log(err));
@@ -52,7 +52,7 @@ const SignIn = () => {
             name="email"
             onChange={(e) => {
               setEmail(e.target.value);
-              setMessage('');
+              setMessage("");
             }}
           />
           <Form.Text className="text-muted">
@@ -69,7 +69,7 @@ const SignIn = () => {
             name="password"
             onChange={(e) => {
               setPass(e.target.value);
-              setMessage('');
+              setMessage("");
             }}
           />
         </Form.Group>
